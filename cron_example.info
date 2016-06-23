@@ -1,0 +1,6 @@
+name = Cron example
+description = Cron examples.
+core = 7.x
+package = Examples
+files[] = cron_example.test
+

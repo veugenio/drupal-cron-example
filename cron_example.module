@@ -1,0 +1,73 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function batch_example_menu() {
+  $items = array();
+
+  /**
+   * Simplest batch implementation.
+   */
+  $items['batch-example'] = array(
+    'title' => 'Batch examples',
+    'page callback' => 'batch_examples',
+    'access callback' => TRUE,
+  );
+
+  /**
+   * Simplest batch implementation.
+   */
+  $items['batch-example/1-0'] = array(
+    'title' => 'Batch example 1',
+    'page callback' => 'batch_example_1',
+    'access callback' => TRUE,
+    'file' => 'inc/batch_example_1.inc',
+  );
+  
+  $items['batch-example/1-1'] = array(
+    'title' => 'Batch example 1.1',
+    'page callback' => 'batch_example_1',
+    'access callback' => TRUE,
+    'file' => 'inc/batch_example_1_1.inc',
+  );
+  
+  $items['batch-example/1-2'] = array(
+    'title' => 'Batch example 1.2',
+    'page callback' => 'batch_example_1',
+    'access callback' => TRUE,
+    'file' => 'inc/batch_example_1_2.inc',
+  );
+  
+  $items['batch-example/1-3'] = array(
+    'title' => 'Batch example 1.3',
+    'page callback' => 'batch_example_1',
+    'access callback' => TRUE,
+    'file' => 'inc/batch_example_1_3.inc',
+  );
+  
+  $items['batch-example/1-4'] = array(
+    'title' => 'Batch example 1.4',
+    'page callback' => 'batch_example_1',
+    'access callback' => TRUE,
+    'file' => 'inc/batch_example_1_4.inc',
+  );
+
+  /**
+   * Batch with a form.
+   */
+  $items['batch-example/2-0'] = array(
+    'title' => 'Batch example 2',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('batch_example_2'),
+    'access callback' => TRUE,
+    'file' => 'inc/batch_example_2.inc',
+  );
+  
+  return $items;
+}
+
+
+function batch_examples() {
+  return t('Some batch examples');
+}
