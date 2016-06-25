@@ -3,7 +3,7 @@
 /**
  * Implements hook_cron().
  */
-function cron_examples_cron() {
+function cron_example_cron() {
   // Do something.
 }
 
@@ -38,4 +38,19 @@ function cron_example_cronjob($op, $job = NULL) {
 
 function cron_example_cronjob_operation() {
   sleep(1);
+}
+
+
+/**
+ * Implements hook_cron_queue_info().
+ */
+function cron_example_cron_queue_info() {
+  $queues['example_queue'] = array(
+    'worker callback' => 'cron_example_queue_callback'
+  );
+  return $queues;
+}
+
+function cron_example_queue_callback($item) {
+  
 }
